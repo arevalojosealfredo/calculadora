@@ -36,7 +36,14 @@
         android:id="@+id/btnSumar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="calcular"
         android:text="Sumar" />
+
+    <Button
+        android:id="@+id/btnLimpiar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Limpiar" />
 
     <TextView
         android:id="@+id/lblResultado"
@@ -45,4 +52,5 @@
         android:gravity="center_horizontal"
         android:textSize="18sp"
         android:textStyle="bold" />
+
 </LinearLayout>
