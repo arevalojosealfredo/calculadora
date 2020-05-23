@@ -23,16 +23,34 @@ public class MainActivity extends AppCompatActivity {
 
     public void calcular (View v){
         int num_uno, num_dos, suma;
-        num_uno = Integer.parseInt(numero_uno.getText().toString());
-        num_dos = Integer.parseInt(numero_dos.getText().toString());
-        suma = num_uno + num_dos;
-        resultado.setText(""+suma);
+        if(validar()){
+            num_uno = Integer.parseInt(numero_uno.getText().toString());
+            num_dos = Integer.parseInt(numero_dos.getText().toString());
+            suma = num_uno + num_dos;
+            resultado.setText("" + suma);
+        }
     }
 
-    public void aux_limpiar(View v){
+    public void limpiar(View v){
         numero_uno.setText("");
         numero_dos.setText("");
         resultado.setText("");
         numero_uno.requestFocus();
+    }
+
+    public boolean validar(){
+        String error_numero_uno, error_numero_dos;
+        error_numero_uno = getResources().getString(R.string.error_numero_uno);
+        error_numero_dos = getResources().getString(R.string.error_numero_dos);
+        if(numero_uno.getText().toString().isEmpty()){
+            numero_uno.setError(error_numero_uno);
+            numero_uno.requestFocus();
+            return false;
+        }else if (numero_dos.getText().toString().isEmpty()){
+            numero_dos.setError(error_numero_dos);
+            numero_dos.requestFocus();
+            return false;
+        }
+        return true;
     }
 }
